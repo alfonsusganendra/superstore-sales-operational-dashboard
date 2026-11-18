@@ -26,12 +26,12 @@ Catatan:
 1. **Data Preparation:** Memperbaiki *mismatch* pada beberapa kolom menggunakan *Find & Replace* dan *Text to Columns* di Microsoft Excel.
 2. **Feature Engineering:** Membuat kolom baru "Lead Time (Days)" (selisih *Ship Date* - *Order Date*) dan "Delivery Status" (On Time/Standard/Delayed) menggunakan formula di Microsoft Excel.
 3. **Exploratory Data Analysis:** Membangun 3 Pivot Table di Excel sebagai *benchmark* KPI:
-   a. *On-Time Delivery Rate* per *Ship Mode*,
-   b. *Sales* & *Profit* per *Region*.
-   c. *Average Lead Time* per *Region*.
+- *On-Time Delivery Rate* per *Ship Mode*,
+- *Sales* & *Profit* per *Region*.
+- *Average Lead Time* per *Region*.
 4. **Visualisasi di Power BI:**
-   a. Mengimpor *Fact Table* (`tSuperstore`) dan *Dimension Table* (`tRegion`) ke Power BI.
-   b. Membangun 4 KPI Cards, 3 visualisasi utama dengan *conditional formatting*, dan 3 *slicer* interaktif.
+- Mengimpor *Fact Table* (`tSuperstore`) dan *Dimension Table* (`tRegion`) ke Power BI.
+- Membangun 4 KPI Cards, 3 visualisasi utama dengan *conditional formatting*, dan 3 *slicer* interaktif.
 
 ## Contoh Formula Excel (Feature Engineering)
 ```excel
@@ -56,7 +56,7 @@ Catatan:
 - **Rekomendasi:** Sebelum *dashboard* digunakan untuk keputusan bisnis, perlu dilakukan analisa mendalam dan diskusi terlebih dahulu ke tim Data Engineering untuk validasi *pipeline* data.
 
 ## Tantangan dan Pembelajaran
-1. **Angka dengan format Float di Conditional Formatting:** Saat membuat *conditional formatting* untuk *Average Lead Time*, saya menemukan *region* dengan nilai rata-rata 3.9 (East & West) muncul berwarna kuning, padahal seharusnya hijau. Setelah dianalisa, ternyata Power BI menyimpan nilai tersebut sebagai 3.9000000000000004 (floating point), sehingga rule `<= 3.9` tidak terpenuhi. Saya memperbaikinya dengan mengubah range.
+1. **Angka dengan format Float di Conditional Formatting:** Saat membuat *conditional formatting* untuk *Average Lead Time*, saya menemukan *region* dengan nilai rata-rata 3.9 (East & West) muncul berwarna kuning, padahal seharusnya hijau. Setelah dianalisa, ternyata Power BI menyimpan nilai tersebut dengan nilai desimal dengan angka di belakang koma yang banyak (floating point), sehingga rule `<= 3.9` tidak terpenuhi. Saya memperbaikinya dengan mengubah range.
 - Pembelajaran: gunakan *range* yang lebih toleran dengan data yang ada.
 
 2. **Validasi Data menggunakan PivotTable Excel:** Saya hanya mengimpor *Fact Table* dan *Dimension Table* ke Power BI, karena Pivot Table Excel saya gunakan sebagai *tools* untuk memvalidasi angka di Power BI. (Contoh: ketika Card Total Sales di Power BI muncul `1.01bn`, saya langsung cek ke Pivot Table Excel (`1.006.076.552`) untuk memastikan akurasin datanya). 
@@ -70,7 +70,7 @@ Catatan:
 - 'dashboard_screenshot.png': *Screenshot* tampilan *dashboard* Power BI.
 - 'Superstore_Sales_Operational_Dashboard.pbix': File Power BI yang dapat dibuka di Power BI Desktop.
 - 'Superstore_Analysis_Raw.xlsx': File Excel yang berisi data mentah, *feature engineering* dan Pivot Table.
-- 'dashboard_export.pdf': *Export* PDF *dashboard* untuk keperluan portofolio.
+- 'dashboard_export.pdf': *Export* PDF *dashboard* untuk keperluan portfolio.
 
 --------
 Dibuat oleh saya, **Alfonsus Ganendra W. G. K.** sebagai bagian dari portfolio untuk *role* Data Analyst dan sejenisnya.
