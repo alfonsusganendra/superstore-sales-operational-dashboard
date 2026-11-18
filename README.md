@@ -36,10 +36,10 @@ Catatan:
 ## Contoh Formula Excel (Feature Engineering)
 ```excel
 // Kolom "Lead Time (Days)" di Excel
-=DAYS([@[Ship Date]], [@[Order Date]])
+=[@[Ship Date]]-[@[Order Date]]
 
 // Kolom "Delivery Status" di Excel
-=IF([@[Lead Time (Days)]] <= 2, "On Time", IF([@[Lead Time (Days)]] <= 5, "Standard", "Delayed"))
+=IFS([@[Lead Time (Days)]]<=2;"On Time";[@[Lead Time (Days)]]<=5;"Standard";[@[Lead Time (Days)]]>5;"Delayed")
 ```
 
 ## Key Insights & Rekomendasi
